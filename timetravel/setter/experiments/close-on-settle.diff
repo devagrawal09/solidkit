@@ -1,0 +1,42 @@
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -13,7 +13,7 @@
+  * `resume()` restores the latest values, then replays the queue through the wrapped setters.
+  * Public Solid 2 APIs only.
+  */
+-import { createMemo, createSignal, createStore, reconcile, snapshot } from "solid-js";
++import { createMemo, createSignal, createStore, getOwner, onSettled, reconcile, snapshot } from "solid-js";
+ 
+ export type Step = { id: number; changes: Record<string, unknown> }; // committed values per source name
+ 
+@@ -138,12 +138,7 @@
+     }
+   };
+ 
+-  internals.set(timeline, {
+-    register(name, source) {
+-      sources.set(name, source);
+-      head.set(name, source.initial);
+-    },
+-    record(name, value) {
++  function land(name: string, value: unknown) {
+       const s = sources.get(name);
+       if (!s || viewed >= 0) return;
+       if (s.initial === UNSET) {
+@@ -162,7 +157,16 @@
+       head.set(name, value);
+       if (s.equals(openBase.get(name), value)) delete open[name];
+       else open[name] = value;
++    }
++  internals.set(timeline, {
++    register(name, source) {
++      sources.set(name, source);
++      head.set(name, source.initial);
+     },
++    record(name, value) {
++      if (getOwner()) land(name, value);
++      else onSettled(() => void land(name, value));
++    },
+     traveling: () => viewed >= 0,
+     defer(write, name, value) {
+       if (name !== undefined) queuedHead.set(name, value);

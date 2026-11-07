@@ -1,0 +1,26 @@
+{
+  "name": "@solidkit/messages",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "solid-js": "2.0.0-rc.19",
+    "@solidjs/web": "2.0.0-rc.19",
+    "@solidkit/kernel": "workspace:*"
+  },
+  "devDependencies": {
+    "@solidjs/vite-plugin": "3.0.0-next.50",
+    "@types/node": "^25.6.0",
+    "happy-dom": "21.0.4",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
