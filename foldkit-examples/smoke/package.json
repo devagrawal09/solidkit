@@ -1,0 +1,9 @@
+{
+  "name": "foldkit-examples-smoke",
+  "private": true,
+  "type": "module",
+  "description": "Headless-Chrome smoke checks used while porting; run against a running pnpm dev",
+  "devDependencies": {
+    "playwright-core": "1.56.1"
+  }
+}

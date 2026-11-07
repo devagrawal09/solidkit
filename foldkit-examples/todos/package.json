@@ -1,0 +1,35 @@
+{
+  "name": "foldkit-todos",
+  "private": true,
+  "description": "Port of solid/examples/todos to the Foldkit Blocks and Effect Layers preview",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "format": "oxfmt",
+    "test": "vitest run",
+    "lint": "oxlint src && effect-tsgo patch --no-typescript --oxlint && oxlint --config .oxlintrc.effect.json --deny-warnings src"
+  },
+  "dependencies": {
+    "@effect/platform-browser": "4.0.0",
+    "effect": "4.0.0",
+    "foldkit": "0.169.0-canary.f3be22cfeefe"
+  },
+  "devDependencies": {
+    "@effect/tsgo": "0.50.0",
+    "@foldkit/devtools": "0.169.0-canary.f3be22cfeefe",
+    "@foldkit/devtools-mcp": "0.25.0-canary.f3be22cfeefe",
+    "@foldkit/oxlint-plugin": "0.15.3-canary.f3be22cfeefe",
+    "@foldkit/vite-plugin": "0.28.0-canary.f3be22cfeefe",
+    "happy-dom": "^20.14.5",
+    "oxfmt": "^0.66.0",
+    "oxlint": "1.85.0",
+    "oxlint-tsgolint": "7.0.2003",
+    "typescript": "7.1.0-beta",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.2"
+  }
+}
