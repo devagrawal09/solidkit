@@ -1,0 +1,24 @@
+{
+  "name": "@solidkit-tt/tracked",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "solid-js": "link:../../../solid/packages/solid",
+    "@solidjs/web": "link:../../../solid/packages/web"
+  },
+  "devDependencies": {
+    "@solidjs/vite-plugin": "3.0.0-next.50",
+    "@types/node": "^25.6.0",
+    "happy-dom": "21.0.4",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

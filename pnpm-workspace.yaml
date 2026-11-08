@@ -4,3 +4,5 @@ packages:
   - variants/*/core
   - variants/*/examples/*
   - timetravel/*
+  # Needs a local Solid build (see timetravel/tracked/README.md): installed on its own.
+  - "!timetravel/tracked"
